@@ -1,0 +1,50 @@
+<section id="section1">
+    <!-- make the welcome form to set an appointment with the doctor -->
+    <div class="container">
+        <h2>Set an Appointment</h2>
+        <form (ngSubmit)="submit()" #appointmentForm="ngForm">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required name="fullname" [(ngModel)]="fullName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required name="email" [(ngModel)]="email">
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required name="phoneNo" [(ngModel)]="phoneNo">
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="appointmentDate" class="form-label">Appointment Date</label>
+                        <input type="date" class="form-control" id="appointmentDate" required name="appointmentDate" [(ngModel)]="appointmentDate">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="appointmentTime" class="form-label">Appointment Time</label>
+                        <input type="time" class="form-control" id="appointmentTime" required name="appointmentTime" [(ngModel)]="appointmentTime">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="doctorSpecialization" class="form-label">Doctor Specialization</label>
+                <select class="form-select" id="doctorSpecialization" required name="doctorSpecialization" [(ngModel)]="doctorSpecialization">
+                    <option value="" selected disabled>Select a specialization</option>
+                    <option value="cardiologist">Cardiologist</option>
+                    <option value="dermatologist">Dermatologist</option>
+                    <option value="orthopedic">Orthopedic</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="doctorName" class="form-label">Doctor Name</label>
+                <input type="text" class="form-control" id="doctorName" placeholder="Enter doctor's name" required name="doctorName" [(ngModel)]="doctorName">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Additional Message</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Enter any additional information" name="additionalMessage" [(ngModel)]="additionalMessage"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!appointmentForm.valid">Submit</button>
+        </form>
+    </div>
+</section>
